@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-Space & Mesiodistal Width Real-Time Dental AI</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg-primary: #0b1120;
+      --bg-secondary: #111827;
+      --bg-card: #1e293b;
+      --bg-card-hover: #263449;
+      --border: #334155;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-cyan: #06b6d4;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      --accent-magenta: #ec4899;
+      --accent-blue: #3b82f6;
+      --danger: #ef4444;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: linear-gradient(90deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 0.85rem 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-badge {
+      background: var(--accent-cyan);
+      color: #000;
+      font-weight: 800;
+      padding: 0.35rem 0.65rem;
+      border-radius: 0.5rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+    }
+
+    .brand h1 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .brand p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .tab-btn {
+      background: var(--bg-card);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      padding: 0.45rem 0.95rem;
+      border-radius: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .tab-btn:hover {
+      background: var(--bg-card-hover);
+      color: var(--text-main);
+    }
+
+    .tab-btn.active {
+      background: var(--accent-blue);
+      color: #fff;
+      border-color: var(--accent-blue);
+    }
+
+    main {
+      flex: 1;
+      padding: 1.25rem 1.5rem;
+      max-width: 1680px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    /* Methodology Stage Strip */
+    .stage-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1.15rem;
+    }
+
+    .stage-pill {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent-cyan);
+      border-radius: 0.5rem;
+      padding: 0.55rem 0.8rem;
+    }
+
+    .stage-pill .st-num {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent-cyan);
+      font-weight: 700;
+    }
+
+    .stage-pill .st-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-top: 0.1rem;
+    }
+
+    .stage-pill .st-desc {
+      font-size: 0.73rem;
+      color: var(--text-muted);
+    }
+
+    /* Main Workspace Grid */
+    .workspace-grid {
+      display: grid;
+      grid-template-columns: 340px 1fr 390px;
+      gap: 1.1rem;
+      align-items: start;
+    }
+
+    @media (max-width: 1280px) {
+      .workspace-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1rem;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.85rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .card-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 0.3rem;
+    }
+
+    select, input[type="number"], input[type="text"] {
+      width: 100%;
+      background: var(--bg-card);
+      color: var(--text-main);
+      border: 1px solid var(--border);
+      border-radius: 0.45rem;
+      padding: 0.5rem 0.65rem;
+      font-size: 0.85rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      background: var(--accent-blue);
+      color: #fff;
+      border: none;
+      border-radius: 0.45rem;
+      padding: 0.5rem 0.85rem;
+      font-size: 0.83rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+
+    .btn:hover {
+      opacity: 0.92;
+    }
+
+    .btn-secondary {
+      background: var(--bg-card);
+      color: var(--text-main);
+      border: 1px solid var(--border);
+    }
+
+    .btn-emerald {
+      background: var(--accent-emerald);
+      color: #052e16;
+    }
+
+    /* Canvas Container */
+    .canvas-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .view-modes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+
+    .mode-btn {
+      background: var(--bg-card);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      border-radius: 0.4rem;
+      padding: 0.35rem 0.65rem;
+      font-size: 0.76rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .mode-btn.active {
+      background: var(--accent-cyan);
+      color: #000;
+      border-color: var(--accent-cyan);
+    }
+
+    .canvas-wrapper {
+      position: relative;
+      width: 100%;
+      background: #000;
+      border: 1px solid var(--border);
+      border-radius: 0.6rem;
+      overflow: hidden;
+      user-select: none;
+    }
+
+    #opgCanvas {
+      display: block;
+      width: 100%;
+      height: auto;
+      cursor: crosshair;
+    }
+
+    .legend-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-top: 0.65rem;
+      padding: 0.55rem 0.75rem;
+      background: var(--bg-card);
+      border-radius: 0.5rem;
+      font-size: 0.76rem;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    /* Measurements Panel */
+    .quadrant-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 0.6rem;
+      padding: 0.8rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .quadrant-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.6rem;
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .tooth-metric-row {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 0.5rem;
+      align-items: center;
+      padding: 0.4rem 0;
+      border-bottom: 1px dashed rgba(148, 163, 184, 0.2);
+      font-size: 0.82rem;
+    }
+
+    .tooth-metric-row:last-child {
+      border-bottom: none;
+    }
+
+    .val-mm {
+      font-weight: 700;
+      font-size: 0.95rem;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .val-px {
+      font-size: 0.73rem;
+      color: var(--text-muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .espace-banner {
+      margin-top: 0.6rem;
+      padding: 0.55rem 0.7rem;
+      border-radius: 0.45rem;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .espace-banner .esp-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--accent-emerald);
+    }
+
+    .espace-banner .esp-val {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #fff;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .gt-compare {
+      margin-top: 0.45rem;
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .contact-Sliders {
+      margin-top: 0.55rem;
+      padding-top: 0.55rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .coord-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.4rem;
+      margin-top: 0.35rem;
+    }
+
+    .coord-pill {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 0.35rem;
+      padding: 0.3rem 0.45rem;
+      font-size: 0.72rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nudge-btns {
+      display: inline-flex;
+      gap: 2px;
+    }
+
+    .nudge-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      width: 20px;
+      height: 20px;
+      border-radius: 3px;
+      font-size: 0.7rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nudge-btn:hover {
+      background: var(--accent-cyan);
+      color: #000;
+    }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      max-height: 70vh;
+      border: 1px solid var(--border);
+      border-radius: 0.6rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 0.6rem 0.85rem;
+      border-bottom: 1px solid var(--border);
+      font-variant-numeric: tabular-nums;
+    }
+
+    th {
+      background: var(--bg-card);
+      position: sticky;
+      top: 0;
+      font-weight: 700;
+      color: var(--text-muted);
+      z-index: 2;
+    }
+
+    tr:hover td {
+      background: rgba(59, 130, 246, 0.08);
+    }
+
+    .badge {
+      padding: 0.15rem 0.45rem;
+      border-radius: 0.3rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .badge-train { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
+    .badge-val { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+    .badge-test { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.85rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .kpi-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 0.6rem;
+      padding: 0.9rem 1rem;
+    }
+
+    .kpi-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .kpi-value {
+      font-size: 1.55rem;
+      font-weight: 800;
+      margin-top: 0.2rem;
+      color: var(--accent-cyan);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <span class="brand-badge">U-NET DENTAL AI</span>
+      <div>
+        <h1>Analysing Tooth Size Discrepancy with E-Space Using AI</h1>
+        <p>Real-Time 2nd Primary Molar &amp; 2nd Premolar Segmentation, Contour Width &amp; Interactive Contact Point Adjustment</p>
+      </div>
+    </div>
+    <div class="nav-tabs">
+      <button class="tab-btn active" onclick="switchTab('analyzer')">1. Real-Time AI Analyzer &amp; Contact Point Editor</button>
+      <button class="tab-btn" onclick="switchTab('dataset')">2. Clinical Dataset &amp; Docx Labels (293 Records)</button>
+      <button class="tab-btn" onclick="switchTab('methodology')">3. U-Net Model Training &amp; Methodology Results</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Methodology 5-Stage Pipeline Strip -->
+    <div class="stage-strip">
+      <div class="stage-pill">
+        <div class="st-num">Stage 1</div>
+        <div class="st-title">Data Collection &amp; Preprocessing</div>
+        <div class="st-desc">Panoramic OPGs, CLAHE contrast enhancement &amp; bilateral denoising; 70/15/15 Train/Val/Test split</div>
+      </div>
+      <div class="stage-pill">
+        <div class="st-num">Stage 2</div>
+        <div class="st-title">Annotation &amp; Binary Masks</div>
+        <div class="st-desc">2nd Primary Molar &amp; 2nd Premolar annotated into white (255) tooth masks on black (0) background</div>
+      </div>
+      <div class="stage-pill">
+        <div class="st-num">Stage 3</div>
+        <div class="st-title">U-Net Selection &amp; Training</div>
+        <div class="st-desc">CoordConv U-Net trained with pixel-wise Cross-Entropy + Dice loss &amp; spatial/contrast augmentations</div>
+      </div>
+      <div class="stage-pill">
+        <div class="st-num">Stage 4</div>
+        <div class="st-title">Segmentation &amp; Width Measurement</div>
+        <div class="st-desc">Contour extraction identifies leftmost &amp; rightmost contact points; interactive drag recalculates live</div>
+      </div>
+      <div class="stage-pill">
+        <div class="st-num">Stage 5</div>
+        <div class="st-title">Conversion to Real-World Units</div>
+        <div class="st-desc">Scale marker / DPI pixel-to-mm calibration computes MDW &amp; E-Space (Molar MDW &minus; Premolar MDW) in mm</div>
+      </div>
+    </div>
+
+    <!-- TAB 1: REAL-TIME AI ANALYZER -->
+    <section id="tab-analyzer" class="tab-panel active">
+      <div class="workspace-grid">
+        <!-- Left Column: Patient Selector, Upload & Calibration -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Patient Radiograph &amp; Scale</div>
+            <span id="splitBadge" class="badge badge-test">TEST</span>
+          </div>
+
+          <label for="patientSelect">Select Patient from Google Drive Dataset (159 OPGs loaded):</label>
+          <select id="patientSelect" onchange="loadSelectedPatient()"></select>
+
+          <div style="display:flex; gap:0.45rem; margin-bottom:0.85rem;">
+            <button class="btn btn-secondary" style="flex:1" onclick="stepPatient(-1)">&larr; Previous</button>
+            <button class="btn btn-secondary" style="flex:1" onclick="stepPatient(1)">Next &rarr;</button>
+          </div>
+
+          <label for="fileUpload">Or Upload New Panoramic Radiograph (.jpg, .png, .tif):</label>
+          <input type="file" id="fileUpload" accept="image/*" style="margin-bottom:0.75rem; font-size:0.8rem;" onchange="uploadCustomRadiograph()" />
+
+          <div style="border-top:1px solid var(--border); padding-top:0.75rem; margin-top:0.25rem;">
+            <div class="card-title" style="font-size:0.86rem; margin-bottom:0.5rem;">Stage 5: Scale Calibration (px / mm)</div>
+            <label for="pxPerMmInput">Pixel-to-Millimeter Ratio (px/mm):</label>
+            <input type="number" id="pxPerMmInput" step="0.01" min="1.0" max="50.0" value="9.29" onchange="triggerLiveRecalculate()" />
+
+            <label style="display:flex; align-items:center; gap:0.45rem; cursor:pointer; margin-bottom:0.65rem; color:var(--text-main);">
+              <input type="checkbox" id="useEuclideanChk" onchange="triggerLiveRecalculate()" />
+              <span>Include vertical tilt (Euclidean distance vs Stage 4 horizontal distance)</span>
+            </label>
+
+            <div style="display:flex; gap:0.45rem;">
+              <button class="btn btn-emerald" style="flex:1" onclick="resetContactPointsToAI()">Reset Contact Points to AI Contour</button>
+            </div>
+          </div>
+
+          <div style="border-top:1px solid var(--border); padding-top:0.75rem; margin-top:0.85rem; font-size:0.77rem; color:var(--text-muted);">
+            <strong style="color:var(--text-main); display:block; margin-bottom:0.25rem;">How Contact Point Adjustment Works:</strong>
+            Drag any of the <strong>8 glowing mesial/distal contact handles (L / R)</strong> directly on the panoramic X-ray canvas (or use the <code>&larr;</code> <code>&rarr;</code> fine-tune buttons). Both pixel width, millimeter width, and E-Space update in real time!
+          </div>
+        </div>
+
+        <!-- Center Column: Interactive Panoramic Canvas -->
+        <div class="card">
+          <div class="canvas-toolbar">
+            <div class="view-modes">
+              <button class="mode-btn active" id="mode-segmented" onclick="setViewMode('segmented')">Stage 4: AI Segmented + Contact Points</button>
+              <button class="mode-btn" id="mode-preprocessed" onclick="setViewMode('preprocessed')">Stage 1: CLAHE Preprocessed</button>
+              <button class="mode-btn" id="mode-binary" onclick="setViewMode('binary')">Stage 2: Binary Mask (255/0)</button>
+              <button class="mode-btn" id="mode-original" onclick="setViewMode('original')">Raw Panoramic OPG</button>
+            </div>
+            <div style="display:flex; align-items:center; gap:0.5rem;">
+              <label style="margin:0; display:flex; align-items:center; gap:0.3rem; cursor:pointer;">
+                <input type="checkbox" id="zoomRoiChk" onchange="renderCanvas()" />
+                <span>Zoom to Mandibular Molar/Premolar Arch</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="canvas-wrapper">
+            <canvas id="opgCanvas" width="1200" height="680"></canvas>
+          </div>
+
+          <div class="legend-bar">
+            <div class="legend-item"><span class="dot" style="background:#00b4ff;"></span> Right 2nd Primary Molar (Tooth 85)</div>
+            <div class="legend-item"><span class="dot" style="background:#50e664;"></span> Right 2nd Premolar (Tooth 45)</div>
+            <div class="legend-item"><span class="dot" style="background:#ffb400;"></span> Left 2nd Primary Molar (Tooth 75)</div>
+            <div class="legend-item"><span class="dot" style="background:#ff64dc;"></span> Left 2nd Premolar (Tooth 35)</div>
+            <div class="legend-item" style="margin-left:auto; color:var(--accent-cyan); font-weight:600;" id="activeDragStatus">
+              Drag any L/R contact point on canvas to adjust MDW
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Real-Time Mesiodistal Width & E-Space Output -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Real-Time MDW &amp; E-Space Results</div>
+            <span id="contactModifiedBadge" class="badge" style="background:rgba(6,182,212,0.2); color:#22d3ee;">AI CONTOUR</span>
+          </div>
+
+          <!-- RIGHT SIDE (Patient Right = Viewer Left) -->
+          <div class="quadrant-box">
+            <div class="quadrant-header">
+              <span style="color:#38bdf8;">RIGHT MANDIBULAR QUADRANT</span>
+              <span style="font-size:0.72rem; color:var(--text-muted);">Teeth 85 &amp; 45</span>
+            </div>
+
+            <div class="tooth-metric-row">
+              <div>
+                <div style="font-weight:600; color:#38bdf8;">2nd Primary Molar (Right)</div>
+                <div class="val-px" id="rm_px_text">0.0 px</div>
+              </div>
+              <div class="val-mm" id="rm_mm_text">0.00 mm</div>
+            </div>
+            <div class="coord-grid">
+              <div class="coord-pill">
+                <span>Mesial/Left X: <strong id="rm_lx">0</strong></span>
+                <span class="nudge-btns">
+                  <button class="nudge-btn" onclick="nudgePoint('right_molar','left',-2)">&larr;</button>
+                  <button class="nudge-btn" onclick="nudgePoint('right_molar','left',2)">&rarr;</button>
+                </span>
+              </div>
+              <div class="coord-pill">
+                <span>Distal/Right X: <strong id="rm_rx">0</strong></span>
+                <span class="nudge-btns">
+                  <button class="nudge-btn" onclick="nudgePoint('right_molar','right',-2)">&larr;</button>
+                  <button class="nudge-btn" onclick="nudgePoint('right_molar','right',2)">&rarr;</button>
+                </span>
+              </div>
+            </div>
+
+            <div class="tooth-metric-row" style="margin-top:0.45rem;">
+              <div>
+                <div style="font-weight:600; color:#4ade80;">2nd Premolar (Right)</div>
+                <div class="val-px" id="rp_px_text">0.0 px</div>
+              </div>
+              <div class="val-mm" id="rp_mm_text">0.00 mm</div>
+            </div>
+            <div class="coord-grid">
+              <div class="coord-pill">
+                <span>Mesial/Left X: <strong id="rp_lx">0</strong></span>
+                <span class="nudge-btns">
+                  <button class="nudge-btn" onclick="nudgePoint('right_premolar','left',-2)">&larr;</button>
+                  <button class="nudge-btn" onclick="nudgePoint('right_premolar','left',2)">&rarr;</button>
+                </span>
+              </div>
+              <div class="coord-pill">
+                <span>Distal/Right X: <strong id="rp_rx">0</strong></span>
+                <span class="nudge-btns">
+                  <button class="nudge-btn" onclick="nudgePoint('right_premolar','right',-2)">&larr;</button>
+                  <button class="nudge-btn" onclick="nudgePoint('right_premolar','right',2)">&rarr;</button>
+                </span>
+              </div>
+            </div>
+
+            <div class="espace-banner">
+              <div>
+                <div class="esp-label">E-SPACE OF RIGHT SIDE</div>
+                <div style="font-size:0.7rem; color:var(--text-muted);" id="right_status_text">Molar MDW &minus; Premolar MDW</div>
+              </div>
+              <div class="esp-val" id="right_espace_mm_text">0.00 mm</div>
+            </div>
+            <div class="gt-compare" id="right_gt_compare">
+              <span>Docx Ground Truth: Molar -- | Premolar -- | E-Space --</span>
+            </div>
+          </div>
+
+          <!-- LEFT SIDE (Patient Left = Viewer Right) -->
+          <div class="quadrant-box" style="margin-bottom:0;">
+            <div class="quadrant-header">
+              <span style="color:#fbbf24;">LEFT MANDIBULAR QUADRANT</span>
+              <span style="font-size:0.72rem; color:var(--text-muted);">Teeth 75 &amp; 35</span>
+            </div>
+
+            <div class="tooth-metric-row">
+              <div>
+                <div style="font-weight:600; color:#fbbf24;">2nd Primary Molar (Left)</div>
+                <div class="val-px" id="lm_px_text">0.0 px</div>
+              </div>
+              <div class="val-mm" id="lm_mm_text">0.00 mm</div>
+            </div>
+            <div class="coord-grid">
+              <div class="coord-pill">
+                <span>Mesial/Left X: <strong id="lm_lx">0</strong></span>
+                <span class="nudge-btns">
+                  <button class="nudge-btn" onclick="nudgePoint('left_molar','left',-2)">&larr;</button>
+                  <button class="nudge-btn" onclick="nudgePoint('left_molar','left',2)">&rarr;</button>
+                </span>
+              </div>
+              <div class="coord-pill">
+                <span>Distal/Right X: <strong id="lm_rx">0</strong></span>
+                <span class="nudge-btns">
+                  <button class="nudge-btn" onclick="nudgePoint('left_molar','right',-2)">&larr;</button>
+                  <button class="nudge-btn" onclick="nudgePoint('left_molar','right',2)">&rarr;</button>
+                </span>
+              </div>
+            </div>
+
+            <div class="tooth-metric-row" style="margin-top:0.45rem;">
+              <div>
+                <div style="font-weight:600; color:#f472b6;">2nd Premolar (Left)</div>
+                <div class="val-px" id="lp_px_text">0.0 px</div>
+              </div>
+              <div class="val-mm" id="lp_mm_text">0.00 mm</div>
+            </div>
+            <div class="coord-grid">
+              <div class="coord-pill">
+                <span>Mesial/Left X: <strong id="lp_lx">0</strong></span>
+                <span class="nudge-btns">
+                  <button class="nudge-btn" onclick="nudgePoint('left_premolar','left',-2)">&larr;</button>
+                  <button class="nudge-btn" onclick="nudgePoint('left_premolar','left',2)">&rarr;</button>
+                </span>
+              </div>
+              <div class="coord-pill">
+                <span>Distal/Right X: <strong id="lp_rx">0</strong></span>
+                <span class="nudge-btns">
+                  <button class="nudge-btn" onclick="nudgePoint('left_premolar','right',-2)">&larr;</button>
+                  <button class="nudge-btn" onclick="nudgePoint('left_premolar','right',2)">&rarr;</button>
+                </span>
+              </div>
+            </div>
+
+            <div class="espace-banner">
+              <div>
+                <div class="esp-label">E-SPACE OF LEFT SIDE</div>
+                <div style="font-size:0.7rem; color:var(--text-muted);" id="left_status_text">Molar MDW &minus; Premolar MDW</div>
+              </div>
+              <div class="esp-val" id="left_espace_mm_text">0.00 mm</div>
+            </div>
+            <div class="gt-compare" id="left_gt_compare">
+              <span>Docx Ground Truth: Molar -- | Premolar -- | E-Space --</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: FULL DOCX CLINICAL DATASET TABLE -->
+    <section id="tab-dataset" class="tab-panel">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Complete Clinical Labelling Table from <code>mesiodistal width.docx</code> (Matched with Google Drive Radiographs)</div>
+          <input type="text" id="tableSearch" placeholder="Filter by patient name..." style="width:260px; margin:0;" oninput="filterDatasetTable()" />
+        </div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Sl No</th>
+                <th>Patient Name</th>
+                <th>Radiograph File</th>
+                <th>MDW (Right) Primary 2nd Molar (mm)</th>
+                <th>MDW (Right) 2nd Premolar (mm)</th>
+                <th>E-Space Right Side (mm)</th>
+                <th>MDW (Left) Primary 2nd Molar (mm)</th>
+                <th>MDW (Left) 2nd Premolar (mm)</th>
+                <th>E-Space Left Side (mm)</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="datasetTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: U-NET TRAINING & METHODOLOGY EVALUATION -->
+    <section id="tab-methodology" class="tab-panel">
+      <div class="kpi-grid" id="evalKpiGrid"></div>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Test Split Evaluation: U-Net Predicted vs. Clinical Ground Truth (mm)</div>
+        </div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Patient Name</th>
+                <th>Scale (px/mm)</th>
+                <th>Right 2nd Primary Molar (Pred / GT)</th>
+                <th>Right 2nd Premolar (Pred / GT)</th>
+                <th>Right E-Space (Pred / GT)</th>
+                <th>Left 2nd Primary Molar (Pred / GT)</th>
+                <th>Left 2nd Premolar (Pred / GT)</th>
+                <th>Left E-Space (Pred / GT)</th>
+              </tr>
+            </thead>
+            <tbody id="evalTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    let patientsList = [];
+    let fullDocxRecords = [];
+    let currentData = null;
+    let currentViewMode = 'segmented';
+    let bgImages = {};
+    let activeImgObj = new Image();
+
+    // Interactive Contact Points state in original image pixel coordinates
+    let contactPoints = {
+      right_molar: { left: [0, 0], right: [0, 0], color: '#00b4ff', label: 'R. 2nd Primary Molar' },
+      right_premolar: { left: [0, 0], right: [0, 0], color: '#50e664', label: 'R. 2nd Premolar' },
+      left_molar: { left: [0, 0], right: [0, 0], color: '#ffb400', label: 'L. 2nd Primary Molar' },
+      left_premolar: { left: [0, 0], right: [0, 0], color: '#ff64dc', label: 'L. 2nd Premolar' }
+    };
+    let aiDefaultPoints = null;
+    let draggingHandle = null; // { toothKey, side: 'left' | 'right' }
+    let currentCrop = { x: 0, y: 0, w: 1844, h: 1044 };
+
+    function switchTab(tabName) {
+      document.querySelectorAll('.tab-panel').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById('tab-' + tabName).classList.add('active');
+      const idx = tabName === 'analyzer' ? 0 : (tabName === 'dataset' ? 1 : 2);
+      document.querySelectorAll('.tab-btn')[idx].classList.add('active');
+    }
+
+    async function initApp() {
+      const res = await fetch('/api/patients');
+      const data = await res.json();
+      patientsList = data.patients || [];
+      const sel = document.getElementById('patientSelect');
+      sel.innerHTML = '';
+      patientsList.forEach((p, idx) => {
+        const opt = document.createElement('option');
+        opt.value = p.file_id;
+        opt.textContent = `${idx + 1}. ${p.patient_name} [${p.split.toUpperCase()}] — R E-Space: ${p.gt_right_espace_mm}mm | L E-Space: ${p.gt_left_espace_mm}mm`;
+        sel.appendChild(opt);
+      });
+
+      if (patientsList.length > 0) {
+        await loadPatientById(patientsList[0].file_id);
+      }
+
+      loadFullDatasetTable();
+      loadEvaluationSummary();
+      setupCanvasEvents();
+    }
+
+    async function loadSelectedPatient() {
+      const fid = document.getElementById('patientSelect').value;
+      if (fid) await loadPatientById(fid);
+    }
+
+    function stepPatient(delta) {
+      const sel = document.getElementById('patientSelect');
+      if (!sel.options.length) return;
+      let nextIdx = (sel.selectedIndex + delta + sel.options.length) % sel.options.length;
+      sel.selectedIndex = nextIdx;
+      loadSelectedPatient();
+    }
+
+    async function loadPatientById(fileId) {
+      const res = await fetch(`/api/analyze/${fileId}`);
+      if (!res.ok) return;
+      const data = await res.json();
+      applyAnalysisData(data);
+    }
+
+    async function uploadCustomRadiograph() {
+      const fileInput = document.getElementById('fileUpload');
+      if (!fileInput.files || !fileInput.files[0]) return;
+      const formData = new FormData();
+      formData.append('file', fileInput.files[0]);
+      const res = await fetch('/api/upload', { method: 'POST', body: formData });
+      if (res.ok) {
+        const data = await res.json();
+        applyAnalysisData(data);
+      }
+    }
+
+    function applyAnalysisData(data) {
+      currentData = data;
+      document.getElementById('pxPerMmInput').value = data.px_per_mm;
+      const sb = document.getElementById('splitBadge');
+      sb.textContent = (data.split || 'CUSTOM').toUpperCase();
+      sb.className = 'badge badge-' + (data.split || 'test');
+
+      bgImages = {
+        segmented: data.images.segmented_overlay_b64,
+        preprocessed: data.images.preprocessed_b64,
+        binary: data.images.binary_mask_b64,
+        original: data.images.original_b64
+      };
+
+      const t = data.measurements.teeth;
+      aiDefaultPoints = JSON.parse(JSON.stringify({
+        right_molar: { left: t.right_molar.left_contact_px, right: t.right_molar.right_contact_px },
+        right_premolar: { left: t.right_premolar.left_contact_px, right: t.right_premolar.right_contact_px },
+        left_molar: { left: t.left_molar.left_contact_px, right: t.left_molar.right_contact_px },
+        left_premolar: { left: t.left_premolar.left_contact_px, right: t.left_premolar.right_contact_px }
+      }));
+
+      resetContactPointsToAI(false);
+      loadActiveBackground();
+    }
+
+    function resetContactPointsToAI(recalc = true) {
+      if (!aiDefaultPoints) return;
+      for (const k of Object.keys(aiDefaultPoints)) {
+        contactPoints[k].left = [...aiDefaultPoints[k].left];
+        contactPoints[k].right = [...aiDefaultPoints[k].right];
+      }
+      const badge = document.getElementById('contactModifiedBadge');
+      badge.textContent = 'AI CONTOUR';
+      badge.style.background = 'rgba(6,182,212,0.2)';
+      badge.style.color = '#22d3ee';
+      if (recalc) triggerLiveRecalculate();
+    }
+
+    function setViewMode(mode) {
+      currentViewMode = mode;
+      document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('mode-' + mode).classList.add('active');
+      loadActiveBackground();
+    }
+
+    function loadActiveBackground() {
+      if (!bgImages[currentViewMode]) return;
+      activeImgObj = new Image();
+      activeImgObj.onload = () => {
+        renderCanvas();
+        triggerLiveRecalculate();
+      };
+      activeImgObj.src = bgImages[currentViewMode];
+    }
+
+    function renderCanvas() {
+      const canvas = document.getElementById('opgCanvas');
+      const ctx = canvas.getContext('2d');
+      if (!currentData || !activeImgObj.width) return;
+
+      const W = currentData.width;
+      const H = currentData.height;
+      const zoomRoi = document.getElementById('zoomRoiChk').checked;
+
+      if (zoomRoi) {
+        currentCrop = {
+          x: Math.round(W * 0.22),
+          y: Math.round(H * 0.48),
+          w: Math.round(W * 0.56),
+          h: Math.round(H * 0.42)
+        };
+      } else {
+        currentCrop = { x: 0, y: 0, w: W, h: H };
+      }
+
+      canvas.width = 1200;
+      canvas.height = Math.round(1200 * (currentCrop.h / currentCrop.w));
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(
+        activeImgObj,
+        currentCrop.x, currentCrop.y, currentCrop.w, currentCrop.h,
+        0, 0, canvas.width, canvas.height
+      );
+
+      const scaleX = canvas.width / currentCrop.w;
+      const scaleY = canvas.height / currentCrop.h;
+      const pxPerMm = parseFloat(document.getElementById('pxPerMmInput').value) || currentData.px_per_mm;
+      const useEuclid = document.getElementById('useEuclideanChk').checked;
+
+      // Draw contour polygons if in segmented mode
+      if (currentViewMode === 'segmented' && currentData.measurements && currentData.measurements.teeth) {
+        for (const [k, info] of Object.entries(contactPoints)) {
+          const poly = currentData.measurements.teeth[k]?.contour_points || [];
+          if (poly.length > 2) {
+            ctx.save();
+            ctx.beginPath();
+            poly.forEach((pt, idx) => {
+              const cx = (pt[0] - currentCrop.x) * scaleX;
+              const cy = (pt[1] - currentCrop.y) * scaleY;
+              if (idx === 0) ctx.moveTo(cx, cy);
+              else ctx.lineTo(cx, cy);
+            });
+            ctx.closePath();
+            ctx.strokeStyle = info.color;
+            ctx.lineWidth = 1.75;
+            ctx.setLineDash([4, 3]);
+            ctx.stroke();
+            ctx.restore();
+          }
+        }
+      }
+
+      // Draw interactive contact point calipers & handles for each tooth
+      for (const [k, info] of Object.entries(contactPoints)) {
+        const lx = (info.left[0] - currentCrop.x) * scaleX;
+        const ly = (info.left[1] - currentCrop.y) * scaleY;
+        const rx = (info.right[0] - currentCrop.x) * scaleX;
+        const ry = (info.right[1] - currentCrop.y) * scaleY;
+
+        // Vertical caliper tick lines (showing horizontal mesiodistal measurement plane)
+        ctx.save();
+        ctx.strokeStyle = info.color;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(lx, ly - 16);
+        ctx.lineTo(lx, ly + 16);
+        ctx.moveTo(rx, ry - 16);
+        ctx.lineTo(rx, ry + 16);
+        ctx.stroke();
+
+        // Connecting measurement line
+        ctx.beginPath();
+        ctx.lineWidth = 2.5;
+        if (useEuclid) {
+          ctx.moveTo(lx, ly);
+          ctx.lineTo(rx, ry);
+        } else {
+          const midY = (ly + ry) / 2;
+          ctx.moveTo(lx, midY);
+          ctx.lineTo(rx, midY);
+        }
+        ctx.stroke();
+
+        // Draw draggable contact handles (Left & Right)
+        for (const [side, hx, hy, tag] of [['left', lx, ly, 'L'], ['right', rx, ry, 'R']]) {
+          const isHoveredOrDragged = draggingHandle && draggingHandle.toothKey === k && draggingHandle.side === side;
+          ctx.beginPath();
+          ctx.arc(hx, hy, isHoveredOrDragged ? 10 : 7.5, 0, Math.PI * 2);
+          ctx.fillStyle = info.color;
+          ctx.fill();
+          ctx.lineWidth = 2;
+          ctx.strokeStyle = '#000';
+          ctx.stroke();
+
+          ctx.fillStyle = '#000';
+          ctx.font = 'bold 9px sans-serif';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText(tag, hx, hy);
+        }
+
+        // Live millimeter label pill above/below caliper line
+        const dx = Math.abs(info.right[0] - info.left[0]);
+        const dy = Math.abs(info.right[1] - info.left[1]);
+        const distPx = useEuclid ? Math.hypot(dx, dy) : dx;
+        const distMm = (distPx / pxPerMm).toFixed(2);
+
+        const labelX = (lx + rx) / 2;
+        const labelY = k.includes('molar') ? Math.min(ly, ry) - 28 : Math.max(ly, ry) + 28;
+        const text = `${distMm} mm (${Math.round(distPx)}px)`;
+        ctx.font = 'bold 11px sans-serif';
+        const tw = ctx.measureText(text).width + 12;
+        ctx.fillStyle = 'rgba(15, 23, 42, 0.88)';
+        ctx.strokeStyle = info.color;
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.roundRect(labelX - tw / 2, labelY - 10, tw, 20, 4);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = '#fff';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(text, labelX, labelY);
+        ctx.restore();
+      }
+    }
+
+    function setupCanvasEvents() {
+      const canvas = document.getElementById('opgCanvas');
+
+      function getImgCoords(evt) {
+        const rect = canvas.getBoundingClientRect();
+        const clientX = evt.touches ? evt.touches[0].clientX : evt.clientX;
+        const clientY = evt.touches ? evt.touches[0].clientY : evt.clientY;
+        const normX = (clientX - rect.left) / rect.width;
+        const normY = (clientY - rect.top) / rect.height;
+        return [
+          currentCrop.x + normX * currentCrop.w,
+          currentCrop.y + normY * currentCrop.h
+        ];
+      }
+
+      function findNearestHandle(imgX, imgY) {
+        const tol = currentCrop.w * 0.022;
+        let best = null;
+        let bestDist = Infinity;
+        for (const [k, info] of Object.entries(contactPoints)) {
+          for (const side of ['left', 'right']) {
+            const pt = info[side];
+            const d = Math.hypot(pt[0] - imgX, pt[1] - imgY);
+            if (d < tol && d < bestDist) {
+              bestDist = d;
+              best = { toothKey: k, side };
+            }
+          }
+        }
+        return best;
+      }
+
+      canvas.addEventListener('mousedown', (evt) => {
+        if (!currentData) return;
+        const [ix, iy] = getImgCoords(evt);
+        const hit = findNearestHandle(ix, iy);
+        if (hit) {
+          draggingHandle = hit;
+          document.getElementById('activeDragStatus').textContent =
+            `Adjusting ${contactPoints[hit.toothKey].label} (${hit.side.toUpperCase()} contact point)...`;
+          renderCanvas();
+        }
+      });
+
+      window.addEventListener('mousemove', (evt) => {
+        if (!draggingHandle || !currentData) return;
+        const [ix, iy] = getImgCoords(evt);
+        const clampedX = Math.max(0, Math.min(currentData.width, ix));
+        const clampedY = Math.max(0, Math.min(currentData.height, iy));
+        contactPoints[draggingHandle.toothKey][draggingHandle.side] = [clampedX, clampedY];
+        markContactModified();
+        renderCanvas();
+        triggerLiveRecalculate();
+      });
+
+      window.addEventListener('mouseup', () => {
+        if (draggingHandle) {
+          draggingHandle = null;
+          document.getElementById('activeDragStatus').textContent =
+            'Contact points updated — MDW & E-Space recalculated!';
+          renderCanvas();
+        }
+      });
+    }
+
+    function markContactModified() {
+      const badge = document.getElementById('contactModifiedBadge');
+      badge.textContent = 'CONTACT ADJUSTED';
+      badge.style.background = 'rgba(245, 158, 11, 0.25)';
+      badge.style.color = '#fbbf24';
+    }
+
+    function nudgePoint(toothKey, side, deltaPx) {
+      if (!currentData) return;
+      contactPoints[toothKey][side][0] = Math.max(0, Math.min(currentData.width, contactPoints[toothKey][side][0] + deltaPx));
+      markContactModified();
+      renderCanvas();
+      triggerLiveRecalculate();
+    }
+
+    async function triggerLiveRecalculate() {
+      if (!currentData) return;
+      const pxPerMm = parseFloat(document.getElementById('pxPerMmInput').value) || currentData.px_per_mm;
+      const useEuclid = document.getElementById('useEuclideanChk').checked;
+
+      const payload = {
+        px_per_mm: pxPerMm,
+        right_molar_left: contactPoints.right_molar.left,
+        right_molar_right: contactPoints.right_molar.right,
+        right_premolar_left: contactPoints.right_premolar.left,
+        right_premolar_right: contactPoints.right_premolar.right,
+        left_molar_left: contactPoints.left_molar.left,
+        left_molar_right: contactPoints.left_molar.right,
+        left_premolar_left: contactPoints.left_premolar.left,
+        left_premolar_right: contactPoints.left_premolar.right,
+        use_euclidean: useEuclid
+      };
+
+      const res = await fetch('/api/recalculate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (!res.ok) return;
+      const calc = await res.json();
+
+      // Update Right UI
+      document.getElementById('rm_mm_text').textContent = `${calc.teeth.right_molar.width_mm.toFixed(2)} mm`;
+      document.getElementById('rm_px_text').textContent = `${calc.teeth.right_molar.width_px.toFixed(1)} px`;
+      document.getElementById('rm_lx').textContent = Math.round(contactPoints.right_molar.left[0]);
+      document.getElementById('rm_rx').textContent = Math.round(contactPoints.right_molar.right[0]);
+
+      document.getElementById('rp_mm_text').textContent = `${calc.teeth.right_premolar.width_mm.toFixed(2)} mm`;
+      document.getElementById('rp_px_text').textContent = `${calc.teeth.right_premolar.width_px.toFixed(1)} px`;
+      document.getElementById('rp_lx').textContent = Math.round(contactPoints.right_premolar.left[0]);
+      document.getElementById('rp_rx').textContent = Math.round(contactPoints.right_premolar.right[0]);
+
+      document.getElementById('right_espace_mm_text').textContent = `${calc.espace.right_espace_mm.toFixed(2)} mm`;
+      document.getElementById('right_status_text').textContent = calc.espace.right_clinical_status;
+
+      // Update Left UI
+      document.getElementById('lm_mm_text').textContent = `${calc.teeth.left_molar.width_mm.toFixed(2)} mm`;
+      document.getElementById('lm_px_text').textContent = `${calc.teeth.left_molar.width_px.toFixed(1)} px`;
+      document.getElementById('lm_lx').textContent = Math.round(contactPoints.left_molar.left[0]);
+      document.getElementById('lm_rx').textContent = Math.round(contactPoints.left_molar.right[0]);
+
+      document.getElementById('lp_mm_text').textContent = `${calc.teeth.left_premolar.width_mm.toFixed(2)} mm`;
+      document.getElementById('lp_px_text').textContent = `${calc.teeth.left_premolar.width_px.toFixed(1)} px`;
+      document.getElementById('lp_lx').textContent = Math.round(contactPoints.left_premolar.left[0]);
+      document.getElementById('lp_rx').textContent = Math.round(contactPoints.left_premolar.right[0]);
+
+      document.getElementById('left_espace_mm_text').textContent = `${calc.espace.left_espace_mm.toFixed(2)} mm`;
+      document.getElementById('left_status_text').textContent = calc.espace.left_clinical_status;
+
+      if (currentData.ground_truth_docx) {
+        const gt = currentData.ground_truth_docx;
+        document.getElementById('right_gt_compare').innerHTML =
+          `<span>Docx Reference: Molar <strong>${gt.right_molar_mm}mm</strong> | Premolar <strong>${gt.right_premolar_mm}mm</strong> | E-Space <strong>${gt.right_espace_mm}mm</strong></span>`;
+        document.getElementById('left_gt_compare').innerHTML =
+          `<span>Docx Reference: Molar <strong>${gt.left_molar_mm}mm</strong> | Premolar <strong>${gt.left_premolar_mm}mm</strong> | E-Space <strong>${gt.left_espace_mm}mm</strong></span>`;
+      }
+      renderCanvas();
+    }
+
+    async function loadFullDatasetTable() {
+      const res = await fetch('/api/dataset_table');
+      const data = await res.json();
+      fullDocxRecords = data.records || [];
+      renderDatasetTable(fullDocxRecords);
+    }
+
+    function renderDatasetTable(records) {
+      const tbody = document.getElementById('datasetTableBody');
+      tbody.innerHTML = records.map((r, i) => `
+        <tr>
+          <td>${i + 1}</td>
+          <td style="font-weight:600;">${r.patient_name}</td>
+          <td style="font-size:0.75rem; color:var(--text-muted);">${r.file_name}</td>
+          <td>${r.right_molar_mm.toFixed(2)}</td>
+          <td>${r.right_premolar_mm.toFixed(2)}</td>
+          <td style="color:var(--accent-emerald); font-weight:700;">${r.right_espace_mm.toFixed(2)}</td>
+          <td>${r.left_molar_mm.toFixed(2)}</td>
+          <td>${r.left_premolar_mm.toFixed(2)}</td>
+          <td style="color:var(--accent-emerald); font-weight:700;">${r.left_espace_mm.toFixed(2)}</td>
+          <td>
+            ${r.is_downloaded
+              ? `<button class="btn" style="padding:0.25rem 0.55rem; font-size:0.73rem;" onclick="openPatientInAnalyzer('${r.file_id}')">Analyze in AI Viewer</button>`
+              : `<span style="font-size:0.72rem; color:var(--text-muted);">Drive TIFF Linked</span>`}
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function filterDatasetTable() {
+      const q = document.getElementById('tableSearch').value.toLowerCase();
+      const filtered = fullDocxRecords.filter(r =>
+        r.patient_name.toLowerCase().includes(q) || r.file_name.toLowerCase().includes(q)
+      );
+      renderDatasetTable(filtered);
+    }
+
+    function openPatientInAnalyzer(fileId) {
+      switchTab('analyzer');
+      const sel = document.getElementById('patientSelect');
+      sel.value = fileId;
+      loadPatientById(fileId);
+    }
+
+    async function loadEvaluationSummary() {
+      const res = await fetch('/api/evaluation');
+      const ev = await res.json();
+      if (!ev.dataset_size) return;
+
+      document.getElementById('evalKpiGrid').innerHTML = `
+        <div class="kpi-card">
+          <div class="kpi-label">Total Matched Docx Records</div>
+          <div class="kpi-value">293</div>
+          <div style="font-size:0.74rem; color:var(--text-muted);">159 Local OPGs (${ev.train_count} Train / ${ev.val_count} Val / ${ev.test_count} Test)</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">U-Net Validation Dice Score</div>
+          <div class="kpi-value">${(ev.best_val_dice * 100).toFixed(1)}%</div>
+          <div style="font-size:0.74rem; color:var(--text-muted);">Test Set Dice: ${(ev.test_dice * 100).toFixed(1)}%</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Right E-Space MAE (Test)</div>
+          <div class="kpi-value">${ev.mae_right_espace_mm.toFixed(3)} mm</div>
+          <div style="font-size:0.74rem; color:var(--text-muted);">Molar MAE: ${ev.mae_right_molar_mm}mm | Premolar: ${ev.mae_right_premolar_mm}mm</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Left E-Space MAE (Test)</div>
+          <div class="kpi-value">${ev.mae_left_espace_mm.toFixed(3)} mm</div>
+          <div style="font-size:0.74rem; color:var(--text-muted);">Molar MAE: ${ev.mae_left_molar_mm}mm | Premolar: ${ev.mae_left_premolar_mm}mm</div>
+        </div>
+      `;
+
+      const tbody = document.getElementById('evalTableBody');
+      tbody.innerHTML = (ev.test_predictions || []).map(p => `
+        <tr>
+          <td style="font-weight:600;">${p.patient_name}</td>
+          <td>${p.px_per_mm}</td>
+          <td>${p.pred_right_molar_mm.toFixed(2)} / <span style="color:var(--text-muted);">${p.gt_right_molar_mm.toFixed(2)}</span></td>
+          <td>${p.pred_right_premolar_mm.toFixed(2)} / <span style="color:var(--text-muted);">${p.gt_right_premolar_mm.toFixed(2)}</span></td>
+          <td style="color:var(--accent-emerald); font-weight:700;">${p.pred_right_espace_mm.toFixed(2)} / ${p.gt_right_espace_mm.toFixed(2)}</td>
+          <td>${p.pred_left_molar_mm.toFixed(2)} / <span style="color:var(--text-muted);">${p.gt_left_molar_mm.toFixed(2)}</span></td>
+          <td>${p.pred_left_premolar_mm.toFixed(2)} / <span style="color:var(--text-muted);">${p.gt_left_premolar_mm.toFixed(2)}</span></td>
+          <td style="color:var(--accent-emerald); font-weight:700;">${p.pred_left_espace_mm.toFixed(2)} / ${p.gt_left_espace_mm.toFixed(2)}</td>
+        </tr>
+      `).join('');
+    }
+
+    window.addEventListener('DOMContentLoaded', initApp);
+  </script>
+</body>
+</html>

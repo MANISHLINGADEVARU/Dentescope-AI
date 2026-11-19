@@ -1,0 +1,334 @@
+{
+  "descriptive_full_293": {
+    "Right 2nd Primary Molar (85) MDW (mm)": {
+      "n": 293,
+      "mean": 10.031,
+      "sd": 1.497,
+      "se": 0.087,
+      "median": 9.9,
+      "iqr": 2.25,
+      "min": 6.2,
+      "max": 13.97,
+      "ci95": "[9.859, 10.203]"
+    },
+    "Right 2nd Premolar (45) MDW (mm)": {
+      "n": 293,
+      "mean": 8.16,
+      "sd": 1.166,
+      "se": 0.068,
+      "median": 8.1,
+      "iqr": 1.6,
+      "min": 5.6,
+      "max": 12.81,
+      "ci95": "[8.026, 8.294]"
+    },
+    "Right E-Space (85 - 45) (mm)": {
+      "n": 293,
+      "mean": 1.868,
+      "sd": 0.934,
+      "se": 0.055,
+      "median": 1.8,
+      "iqr": 1.14,
+      "min": -2.1,
+      "max": 4.92,
+      "ci95": "[1.761, 1.976]"
+    },
+    "Left 2nd Primary Molar (75) MDW (mm)": {
+      "n": 293,
+      "mean": 9.986,
+      "sd": 1.352,
+      "se": 0.079,
+      "median": 9.98,
+      "iqr": 1.83,
+      "min": 5.8,
+      "max": 13.82,
+      "ci95": "[9.830, 10.141]"
+    },
+    "Left 2nd Premolar (35) MDW (mm)": {
+      "n": 293,
+      "mean": 8.197,
+      "sd": 1.016,
+      "se": 0.059,
+      "median": 8.2,
+      "iqr": 1.5,
+      "min": 5.6,
+      "max": 12.26,
+      "ci95": "[8.081, 8.314]"
+    },
+    "Left E-Space (75 - 35) (mm)": {
+      "n": 293,
+      "mean": 1.791,
+      "sd": 0.93,
+      "se": 0.054,
+      "median": 1.8,
+      "iqr": 1.2,
+      "min": -2.53,
+      "max": 4.36,
+      "ci95": "[1.684, 1.898]"
+    }
+  },
+  "paired_tests": {
+    "right_molar_vs_premolar": {
+      "n": 293,
+      "mean_diff": 1.8704,
+      "sd_diff": 0.9338,
+      "se_diff": 0.0546,
+      "t_stat": 34.285,
+      "p_val": 2.207708226771274e-104,
+      "w_pval": 1.552674415727032e-48,
+      "cohens_d": 2.0029,
+      "pearson_r": 0.7817,
+      "pearson_p": 1.3079628075393823e-61
+    },
+    "left_molar_vs_premolar": {
+      "n": 293,
+      "mean_diff": 1.7883,
+      "sd_diff": 0.929,
+      "se_diff": 0.0543,
+      "t_stat": 32.9519,
+      "p_val": 2.2063917984263817e-100,
+      "w_pval": 1.8602909532176196e-48,
+      "cohens_d": 1.9251,
+      "pearson_r": 0.7268,
+      "pearson_p": 2.185854608558222e-49
+    },
+    "bilateral_molar_right_vs_left": {
+      "n": 293,
+      "mean_diff": 0.0449,
+      "sd_diff": 0.9977,
+      "se_diff": 0.0583,
+      "t_stat": 0.77,
+      "p_val": 0.4419414427906114,
+      "w_pval": 0.4268629993161329,
+      "cohens_d": 0.045,
+      "pearson_r": 0.7593,
+      "pearson_p": 3.168046914793553e-56
+    },
+    "bilateral_premolar_right_vs_left": {
+      "n": 293,
+      "mean_diff": -0.0372,
+      "sd_diff": 1.083,
+      "se_diff": 0.0633,
+      "t_stat": -0.5875,
+      "p_val": 0.557355333139671,
+      "w_pval": 0.14721811601377024,
+      "cohens_d": -0.0343,
+      "pearson_r": 0.5145,
+      "pearson_p": 3.342133094796614e-21
+    },
+    "bilateral_espace_right_vs_left": {
+      "n": 293,
+      "mean_diff": 0.0773,
+      "sd_diff": 0.9606,
+      "se_diff": 0.0561,
+      "t_stat": 1.377,
+      "p_val": 0.16957897582955947,
+      "w_pval": 0.07472213385709026,
+      "cohens_d": 0.0804,
+      "pearson_r": 0.4685,
+      "pearson_p": 2.152987491466345e-17
+    }
+  },
+  "clinical_categories": {
+    "right": {
+      "adequate": [
+        197,
+        67.2
+      ],
+      "borderline": [
+        91,
+        31.1
+      ],
+      "negative": [
+        5,
+        1.7
+      ]
+    },
+    "left": {
+      "adequate": [
+        183,
+        62.5
+      ],
+      "borderline": [
+        106,
+        36.2
+      ],
+      "negative": [
+        4,
+        1.4
+      ]
+    }
+  },
+  "agreement_test_25": {
+    "Right 2nd Primary Molar (85)": {
+      "n": 25,
+      "mae": 0.0592,
+      "rmse": 0.0679,
+      "bias": 0.0144,
+      "sd_err": 0.0678,
+      "loa_95": "[-0.118, 0.147]",
+      "pearson_r": 0.9979,
+      "spearman_rho": 0.9957,
+      "r2": 0.995,
+      "icc": 0.9954,
+      "paired_t": 1.0625,
+      "paired_p": 0.2986
+    },
+    "Right 2nd Premolar (45)": {
+      "n": 25,
+      "mae": 0.048,
+      "rmse": 0.0582,
+      "bias": 0.0184,
+      "sd_err": 0.0563,
+      "loa_95": "[-0.092, 0.129]",
+      "pearson_r": 0.9965,
+      "spearman_rho": 0.98,
+      "r2": 0.9914,
+      "icc": 0.9925,
+      "paired_t": 1.6334,
+      "paired_p": 0.1154
+    },
+    "Right E-Space": {
+      "n": 25,
+      "mae": 0.0616,
+      "rmse": 0.0765,
+      "bias": -0.004,
+      "sd_err": 0.078,
+      "loa_95": "[-0.157, 0.149]",
+      "pearson_r": 0.9934,
+      "spearman_rho": 0.9913,
+      "r2": 0.9861,
+      "icc": 0.9865,
+      "paired_t": -0.2564,
+      "paired_p": 0.7998
+    },
+    "Left 2nd Primary Molar (75)": {
+      "n": 25,
+      "mae": 0.0516,
+      "rmse": 0.0603,
+      "bias": 0.0092,
+      "sd_err": 0.0608,
+      "loa_95": "[-0.110, 0.128]",
+      "pearson_r": 0.9988,
+      "spearman_rho": 0.9919,
+      "r2": 0.9968,
+      "icc": 0.997,
+      "paired_t": 0.7563,
+      "paired_p": 0.4568
+    },
+    "Left 2nd Premolar (35)": {
+      "n": 25,
+      "mae": 0.0672,
+      "rmse": 0.0778,
+      "bias": 0.0104,
+      "sd_err": 0.0787,
+      "loa_95": "[-0.144, 0.165]",
+      "pearson_r": 0.9956,
+      "spearman_rho": 0.9965,
+      "r2": 0.9903,
+      "icc": 0.9907,
+      "paired_t": 0.6606,
+      "paired_p": 0.5151
+    },
+    "Left E-Space": {
+      "n": 25,
+      "mae": 0.0788,
+      "rmse": 0.0967,
+      "bias": -0.0012,
+      "sd_err": 0.0987,
+      "loa_95": "[-0.195, 0.192]",
+      "pearson_r": 0.9939,
+      "spearman_rho": 0.9929,
+      "r2": 0.9849,
+      "icc": 0.9857,
+      "paired_t": -0.0608,
+      "paired_p": 0.952
+    }
+  },
+  "agreement_cohort_159": {
+    "Right 2nd Primary Molar (85)": {
+      "n": 159,
+      "mae": 0.0572,
+      "rmse": 0.0657,
+      "bias": 0.0018,
+      "sd_err": 0.0659,
+      "loa_95": "[-0.127, 0.131]",
+      "pearson_r": 0.9976,
+      "spearman_rho": 0.9962,
+      "r2": 0.995,
+      "icc": 0.9951,
+      "paired_t": 0.3491,
+      "paired_p": 0.7275
+    },
+    "Right 2nd Premolar (45)": {
+      "n": 159,
+      "mae": 0.0555,
+      "rmse": 0.0657,
+      "bias": 0.0067,
+      "sd_err": 0.0655,
+      "loa_95": "[-0.122, 0.135]",
+      "pearson_r": 0.9964,
+      "spearman_rho": 0.9927,
+      "r2": 0.9926,
+      "icc": 0.9928,
+      "paired_t": 1.2953,
+      "paired_p": 0.1971
+    },
+    "Right E-Space": {
+      "n": 159,
+      "mae": 0.0782,
+      "rmse": 0.1035,
+      "bias": -0.0011,
+      "sd_err": 0.1038,
+      "loa_95": "[-0.205, 0.202]",
+      "pearson_r": 0.9921,
+      "spearman_rho": 0.9889,
+      "r2": 0.9827,
+      "icc": 0.9833,
+      "paired_t": -0.1375,
+      "paired_p": 0.8908
+    },
+    "Left 2nd Primary Molar (75)": {
+      "n": 159,
+      "mae": 0.0569,
+      "rmse": 0.0657,
+      "bias": 0.0039,
+      "sd_err": 0.0658,
+      "loa_95": "[-0.125, 0.133]",
+      "pearson_r": 0.9979,
+      "spearman_rho": 0.9974,
+      "r2": 0.9956,
+      "icc": 0.9957,
+      "paired_t": 0.7475,
+      "paired_p": 0.4559
+    },
+    "Left 2nd Premolar (35)": {
+      "n": 159,
+      "mae": 0.056,
+      "rmse": 0.0672,
+      "bias": 0.0058,
+      "sd_err": 0.0672,
+      "loa_95": "[-0.126, 0.138]",
+      "pearson_r": 0.9968,
+      "spearman_rho": 0.9959,
+      "r2": 0.9934,
+      "icc": 0.9935,
+      "paired_t": 1.0976,
+      "paired_p": 0.2741
+    },
+    "Left E-Space": {
+      "n": 159,
+      "mae": 0.0833,
+      "rmse": 0.1179,
+      "bias": -0.007,
+      "sd_err": 0.1181,
+      "loa_95": "[-0.238, 0.224]",
+      "pearson_r": 0.9882,
+      "spearman_rho": 0.9843,
+      "r2": 0.9754,
+      "icc": 0.9761,
+      "paired_t": -0.7454,
+      "paired_p": 0.4571
+    }
+  }
+}

@@ -1,0 +1,326 @@
+{
+  "regression_test_25": {
+    "Right 2nd Primary Molar (85) MDW": {
+      "n": 25,
+      "mae": 0.0592,
+      "mse": 0.00462,
+      "rmse": 0.0679,
+      "bias": 0.0144,
+      "sd_err": 0.0678,
+      "loa_95": "[-0.118, 0.147]",
+      "pearson_r": 0.9979,
+      "r2": 0.995,
+      "icc": 0.9954,
+      "acc_015mm_pct": 100.0,
+      "acc_020mm_pct": 100.0
+    },
+    "Right 2nd Premolar (45) MDW": {
+      "n": 25,
+      "mae": 0.048,
+      "mse": 0.00338,
+      "rmse": 0.0582,
+      "bias": 0.0184,
+      "sd_err": 0.0563,
+      "loa_95": "[-0.092, 0.129]",
+      "pearson_r": 0.9965,
+      "r2": 0.9914,
+      "icc": 0.9925,
+      "acc_015mm_pct": 100.0,
+      "acc_020mm_pct": 100.0
+    },
+    "Right E-Space (85 - 45)": {
+      "n": 25,
+      "mae": 0.0616,
+      "mse": 0.00586,
+      "rmse": 0.0765,
+      "bias": -0.004,
+      "sd_err": 0.078,
+      "loa_95": "[-0.157, 0.149]",
+      "pearson_r": 0.9934,
+      "r2": 0.9861,
+      "icc": 0.9865,
+      "acc_015mm_pct": 96.0,
+      "acc_020mm_pct": 100.0
+    },
+    "Left 2nd Primary Molar (75) MDW": {
+      "n": 25,
+      "mae": 0.0516,
+      "mse": 0.00364,
+      "rmse": 0.0603,
+      "bias": 0.0092,
+      "sd_err": 0.0608,
+      "loa_95": "[-0.110, 0.128]",
+      "pearson_r": 0.9988,
+      "r2": 0.9968,
+      "icc": 0.997,
+      "acc_015mm_pct": 100.0,
+      "acc_020mm_pct": 100.0
+    },
+    "Left 2nd Premolar (35) MDW": {
+      "n": 25,
+      "mae": 0.0672,
+      "mse": 0.00606,
+      "rmse": 0.0778,
+      "bias": 0.0104,
+      "sd_err": 0.0787,
+      "loa_95": "[-0.144, 0.165]",
+      "pearson_r": 0.9956,
+      "r2": 0.9903,
+      "icc": 0.9907,
+      "acc_015mm_pct": 100.0,
+      "acc_020mm_pct": 100.0
+    },
+    "Left E-Space (75 - 35)": {
+      "n": 25,
+      "mae": 0.0788,
+      "mse": 0.00936,
+      "rmse": 0.0967,
+      "bias": -0.0012,
+      "sd_err": 0.0987,
+      "loa_95": "[-0.195, 0.192]",
+      "pearson_r": 0.9939,
+      "r2": 0.9849,
+      "icc": 0.9857,
+      "acc_015mm_pct": 88.0,
+      "acc_020mm_pct": 96.0
+    }
+  },
+  "regression_cohort_159": {
+    "Right 2nd Primary Molar (85) MDW": {
+      "n": 159,
+      "mae": 0.0572,
+      "mse": 0.00432,
+      "rmse": 0.0657,
+      "bias": 0.0018,
+      "sd_err": 0.0659,
+      "loa_95": "[-0.127, 0.131]",
+      "pearson_r": 0.9976,
+      "r2": 0.995,
+      "icc": 0.9951,
+      "acc_015mm_pct": 100.0,
+      "acc_020mm_pct": 100.0
+    },
+    "Right 2nd Premolar (45) MDW": {
+      "n": 159,
+      "mae": 0.0555,
+      "mse": 0.00431,
+      "rmse": 0.0657,
+      "bias": 0.0067,
+      "sd_err": 0.0655,
+      "loa_95": "[-0.122, 0.135]",
+      "pearson_r": 0.9964,
+      "r2": 0.9926,
+      "icc": 0.9928,
+      "acc_015mm_pct": 100.0,
+      "acc_020mm_pct": 100.0
+    },
+    "Right E-Space (85 - 45)": {
+      "n": 159,
+      "mae": 0.0782,
+      "mse": 0.01071,
+      "rmse": 0.1035,
+      "bias": -0.0011,
+      "sd_err": 0.1038,
+      "loa_95": "[-0.205, 0.202]",
+      "pearson_r": 0.9921,
+      "r2": 0.9827,
+      "icc": 0.9833,
+      "acc_015mm_pct": 86.16,
+      "acc_020mm_pct": 97.48
+    },
+    "Left 2nd Primary Molar (75) MDW": {
+      "n": 159,
+      "mae": 0.0569,
+      "mse": 0.00431,
+      "rmse": 0.0657,
+      "bias": 0.0039,
+      "sd_err": 0.0658,
+      "loa_95": "[-0.125, 0.133]",
+      "pearson_r": 0.9979,
+      "r2": 0.9956,
+      "icc": 0.9957,
+      "acc_015mm_pct": 100.0,
+      "acc_020mm_pct": 100.0
+    },
+    "Left 2nd Premolar (35) MDW": {
+      "n": 159,
+      "mae": 0.056,
+      "mse": 0.00452,
+      "rmse": 0.0672,
+      "bias": 0.0058,
+      "sd_err": 0.0672,
+      "loa_95": "[-0.126, 0.138]",
+      "pearson_r": 0.9968,
+      "r2": 0.9934,
+      "icc": 0.9935,
+      "acc_015mm_pct": 100.0,
+      "acc_020mm_pct": 100.0
+    },
+    "Left E-Space (75 - 35)": {
+      "n": 159,
+      "mae": 0.0833,
+      "mse": 0.01391,
+      "rmse": 0.1179,
+      "bias": -0.007,
+      "sd_err": 0.1181,
+      "loa_95": "[-0.238, 0.224]",
+      "pearson_r": 0.9882,
+      "r2": 0.9754,
+      "icc": 0.9761,
+      "acc_015mm_pct": 89.31,
+      "acc_020mm_pct": 97.48
+    }
+  },
+  "segmentation_metrics": {
+    "val": {
+      "count": 23,
+      "overall_pixel_accuracy": 0.99044,
+      "binary_dice": 0.4537,
+      "binary_iou": 0.2983,
+      "binary_precision": 0.381,
+      "binary_recall": 0.5698,
+      "mean_multiclass_dice": 0.4607,
+      "mean_multiclass_iou": 0.3185,
+      "per_class": {
+        "Right 2nd Primary Molar (85)": {
+          "dice": 0.3484,
+          "iou": 0.2212,
+          "precision": 0.3062,
+          "recall": 0.4142,
+          "pixel_accuracy": 0.99709
+        },
+        "Right 2nd Premolar (45)": {
+          "dice": 0.5723,
+          "iou": 0.4149,
+          "precision": 0.4587,
+          "recall": 0.7785,
+          "pixel_accuracy": 0.99835
+        },
+        "Left 2nd Primary Molar (75)": {
+          "dice": 0.3422,
+          "iou": 0.2162,
+          "precision": 0.2882,
+          "recall": 0.4326,
+          "pixel_accuracy": 0.9967
+        },
+        "Left 2nd Premolar (35)": {
+          "dice": 0.5797,
+          "iou": 0.4216,
+          "precision": 0.4901,
+          "recall": 0.7443,
+          "pixel_accuracy": 0.9983
+        }
+      }
+    },
+    "test": {
+      "count": 25,
+      "overall_pixel_accuracy": 0.99071,
+      "binary_dice": 0.4378,
+      "binary_iou": 0.2826,
+      "binary_precision": 0.3465,
+      "binary_recall": 0.6057,
+      "mean_multiclass_dice": 0.443,
+      "mean_multiclass_iou": 0.2983,
+      "per_class": {
+        "Right 2nd Primary Molar (85)": {
+          "dice": 0.3298,
+          "iou": 0.204,
+          "precision": 0.2756,
+          "recall": 0.4243,
+          "pixel_accuracy": 0.9972
+        },
+        "Right 2nd Premolar (45)": {
+          "dice": 0.5431,
+          "iou": 0.3808,
+          "precision": 0.4144,
+          "recall": 0.8036,
+          "pixel_accuracy": 0.99827
+        },
+        "Left 2nd Primary Molar (75)": {
+          "dice": 0.334,
+          "iou": 0.2082,
+          "precision": 0.2655,
+          "recall": 0.4713,
+          "pixel_accuracy": 0.99688
+        },
+        "Left 2nd Premolar (35)": {
+          "dice": 0.565,
+          "iou": 0.4001,
+          "precision": 0.4405,
+          "recall": 0.8124,
+          "pixel_accuracy": 0.99835
+        }
+      }
+    },
+    "all": {
+      "count": 159,
+      "overall_pixel_accuracy": 0.99059,
+      "binary_dice": 0.4567,
+      "binary_iou": 0.2999,
+      "binary_precision": 0.3841,
+      "binary_recall": 0.5763,
+      "mean_multiclass_dice": 0.4644,
+      "mean_multiclass_iou": 0.3207,
+      "per_class": {
+        "Right 2nd Primary Molar (85)": {
+          "dice": 0.34,
+          "iou": 0.2143,
+          "precision": 0.3024,
+          "recall": 0.4017,
+          "pixel_accuracy": 0.99708
+        },
+        "Right 2nd Premolar (45)": {
+          "dice": 0.5726,
+          "iou": 0.4118,
+          "precision": 0.4625,
+          "recall": 0.7769,
+          "pixel_accuracy": 0.99835
+        },
+        "Left 2nd Primary Molar (75)": {
+          "dice": 0.3463,
+          "iou": 0.2188,
+          "precision": 0.2932,
+          "recall": 0.4393,
+          "pixel_accuracy": 0.99675
+        },
+        "Left 2nd Premolar (35)": {
+          "dice": 0.5985,
+          "iou": 0.4378,
+          "precision": 0.4993,
+          "recall": 0.7834,
+          "pixel_accuracy": 0.99841
+        }
+      }
+    }
+  },
+  "classification_test_50_quadrants": {
+    "threshold_mm": 1.5,
+    "total_quadrants": 50,
+    "tp": 22,
+    "fp": 1,
+    "fn": 0,
+    "tn": 27,
+    "accuracy": 0.98,
+    "precision": 0.9565,
+    "recall": 1.0,
+    "specificity": 0.9643,
+    "f1_score": 0.9778,
+    "cohens_kappa": 0.9596,
+    "roc_auc": 0.9984
+  },
+  "classification_cohort_318_quadrants": {
+    "threshold_mm": 1.5,
+    "total_quadrants": 318,
+    "tp": 173,
+    "fp": 15,
+    "fn": 0,
+    "tn": 130,
+    "accuracy": 0.9528,
+    "precision": 0.9202,
+    "recall": 1.0,
+    "specificity": 0.8966,
+    "f1_score": 0.9584,
+    "cohens_kappa": 0.9041,
+    "roc_auc": 0.9932
+  }
+}
